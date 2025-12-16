@@ -8,7 +8,7 @@ a tightly coupled application into a scalable, fault-tolerant system.
 
 ---
 
-## 🧩 Project Overview
+## Project Overview
 
 The application simulates an image upload workflow:
 
@@ -24,7 +24,7 @@ This design ensures the system remains operational even if one component fails.
 
 ---
 
-## ☁️ AWS Services Used
+## AWS Services Used
 
 - Amazon S3 – Image storage and event triggering
 - Amazon SNS – Publish/subscribe notifications
@@ -35,7 +35,7 @@ This design ensures the system remains operational even if one component fails.
 
 ---
 
-## 🏗 Architecture Phases
+## Architecture Phases
 
 ### Phase 1 – Tightly Coupled Architecture
 - Web server communicates directly with application server
@@ -49,18 +49,8 @@ This design ensures the system remains operational even if one component fails.
 
 ---
 
-## 📸 Screenshots
 
-All implementation evidence is available in the `screenshots/` directory:
-- S3 bucket policy configuration
-- SNS topic creation
-- SNS access policy
-- S3 event notifications
-- SNS email subscription
-
----
-
-## 🎯 Key Learnings
+##  Key Learnings
 
 - Decoupling improves availability and scalability
 - Message queues prevent system-wide failures
@@ -69,7 +59,7 @@ All implementation evidence is available in the `screenshots/` directory:
 
 ---
 
-## 📌 Conclusion
+##  Conclusion
 
 This project showcases how AWS SQS and SNS can be used together to build
 reliable, loosely coupled cloud applications that scale efficiently and
@@ -107,7 +97,7 @@ This phase introduces an event-driven architecture using AWS managed services.
 
 The system remains operational even when the application server is unavailable.
 
-# Decoupled Workflow
+## Decoupled Workflow
 
 1. User uploads an image
 2. Image is stored in Amazon S3
