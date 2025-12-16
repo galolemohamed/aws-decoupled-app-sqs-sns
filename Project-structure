@@ -1,0 +1,27 @@
+aws-decoupled-app-sqs-sns/
+│
+├── README.md
+│
+├── architecture/
+│   └── architecture-overview.md
+│
+├── screenshots/
+│   ├── s3-bucket-policy.png
+│   ├── sns-topic-created.png
+│   ├── sns-access-policy.png
+│   ├── s3-event-notification.png
+│   └── sns-email-subscription.png
+│
+├── phase-1-tightly-coupled/
+│   └── README.md
+│
+├── phase-2-decoupled/
+│   ├── README.md
+│   └── workflow.md
+│
+├── infrastructure/
+│   ├── s3-bucket-policy.json
+│   ├── sns-topic-policy.json
+│   └── s3-event-notification.json
+│
+└── .gitignore
