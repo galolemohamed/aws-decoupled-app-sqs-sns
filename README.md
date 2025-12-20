@@ -1,113 +1,144 @@
 # Building Decoupled Applications with AWS SQS and SNS
 
-This project demonstrates how to design and implement a decoupled, event-driven
-application architecture using AWS services such as Amazon S3, SNS, and SQS.
+##  Overview
 
-The project is based on a hands-on AWS guided lab and focuses on transforming
-a tightly coupled application into a scalable, fault-tolerant system.
+This project demonstrates how to design and implement a **decoupled, event-driven cloud architecture** using AWS managed services such as **Amazon S3, Amazon SNS, and Amazon SQS**.
+
+The project is based on a hands-on AWS guided lab and focuses on transforming a **tightly coupled application** into a **scalable, fault-tolerant system** following cloud-native best practices.
 
 ---
 
-## Project Overview
+##  Architecture Overview
 
-The application simulates an image upload workflow:
+### Decoupled Event-Driven Architecture
 
-- Users upload images through a web interface
-- Images are stored in Amazon S3
-- S3 triggers an SNS notification on object creation
-- SNS delivers messages to:
-  - An SQS queue for asynchronous processing
-  - An email subscriber for alerts
-- The application server polls SQS and processes images independently
+![AWS S3 SNS SQS Architecture](Architecture/Decoupled-architecture.png)
+
+**Architecture Type:** Event-driven, decoupled  
+**Key Benefits:** Fault tolerance, scalability, asynchronous processing
+
+---
+
+##  Application Workflow
+
+The application simulates an **image upload pipeline**:
+
+1. Users upload images through a web interface
+2. Images are stored in **Amazon S3**
+3. S3 triggers an **SNS notification** on object creation
+4. SNS delivers messages to:
+   - **Amazon SQS** for asynchronous processing
+   - **Email subscribers** for alerts
+5. The application server polls **SQS** and processes images independently
 
 This design ensures the system remains operational even if one component fails.
 
 ---
 
-## AWS Services Used
+## ☁️ AWS Services Used
 
-- Amazon S3 – Image storage and event triggering
-- Amazon SNS – Publish/subscribe notifications
-- Amazon SQS – Message queue for decoupling components
-- Amazon EC2 – Hosts the web and application servers
-- Node.js – Application runtime
-
+| Service | Purpose |
+|------|------|
+| Amazon S3 | Image storage and event triggering |
+| Amazon SNS | Publish/subscribe notifications |
+| Amazon SQS | Message queue for decoupling components |
+| Amazon EC2 | Hosts web and application servers |
+| Node.js | Application runtime |
 
 ---
 
-## Architecture Phases
+## 🔄 Architecture Evolution
 
 ### Phase 1 – Tightly Coupled Architecture
-- Web server communicates directly with application server
-- Synchronous processing
-- Application failure causes system downtime
 
-### Phase 2 – Decoupled Architecture
-- Asynchronous communication using SNS and SQS
-- Improved scalability and fault tolerance
-- Message persistence ensures reliable processing
+#### Workflow
+- User uploads an image
+- Web server directly invokes the application server
+- Image is processed synchronously
+
+#### Limitations
+- ❌ No fault tolerance  
+- ❌ Application server downtime breaks the system  
+- ❌ Poor scalability  
+- ❌ Tight dependency between components  
+
+This phase highlights why **tightly coupled architectures are unsuitable** for modern cloud-native applications.
 
 ---
 
+### Phase 2 – Decoupled Architecture Using AWS
 
-##  Key Learnings
+#### Improvements Introduced
+- ✅ Amazon SNS for notifications  
+- ✅ Amazon SQS for message queuing  
+- ✅ Asynchronous processing  
+- ✅ Independent scaling of components  
+- ✅ Message persistence and reliability  
+
+#### Decoupled Workflow
+1. User uploads an image
+2. Image is stored in Amazon S3
+3. S3 triggers an SNS notification
+4. SNS:
+   - Publishes message to SQS
+   - Sends email notification
+5. Application server polls SQS
+6. Image is processed asynchronously
+
+Messages remain in SQS **until successfully processed**, ensuring reliability.
+
+---
+
+##  Implementation Screenshots
+
+### Amazon S3 Event Notification
+![S3 Event Notification](Screenshots/sns-event-notification.jpg)
+
+### SNS Topic
+![SNS Topic Created](Screenshots/sns.jpg)
+
+### SNS Email Subscription
+![SNS Email Subscription](Screenshots/sns-subscription.jpg)
+
+### Amazon SQS Message Queue
+![SQS Messages](Screenshots/sqs.jpg)
+
+These screenshots provide **visual proof of real AWS resource configuration**.
+
+---
+
+## 🔐 Reliability & Fault Tolerance
+
+- Message persistence via SQS prevents data loss
+- Components operate independently
+- Failures in the application server do not impact uploads
+- Asynchronous processing improves system resilience
+
+---
+
+## 🧠 Key Learnings
 
 - Decoupling improves availability and scalability
 - Message queues prevent system-wide failures
 - Event-driven architectures are resilient by design
 - AWS managed services simplify distributed systems
+- Cloud-native design enables independent scaling
 
 ---
 
+
 ##  Conclusion
 
-This project showcases how AWS SQS and SNS can be used together to build
-reliable, loosely coupled cloud applications that scale efficiently and
-handle failures gracefully.
+This project demonstrates how **Amazon SNS and Amazon SQS** can be used together to build **reliable, loosely coupled cloud applications**. By transitioning from synchronous communication to an event-driven architecture, the system achieves **higher availability, better scalability, and improved fault tolerance**.
 
+---
 
-# Phase 1 – Tightly Coupled Architecture
+##  Why This Project Matters
 
-In this phase, the application followed a traditional tightly coupled design.
-
-## Workflow
-1. User uploads an image
-2. Web server directly invokes the application server
-3. Image is processed synchronously
-
-## Limitations
-- No fault tolerance
-- Application server downtime breaks the system
-- Poor scalability
-- Tight dependency between components
-
-This phase highlights why tightly coupled architectures are unsuitable
-for modern cloud-native applications.
-
-
-# Phase 2 – Decoupled Architecture Using AWS
-
-This phase introduces an event-driven architecture using AWS managed services.
-
-## Improvements Introduced
-- Amazon SNS for notifications
-- Amazon SQS for message queuing
-- Asynchronous processing
-- Independent scaling of components
-
-The system remains operational even when the application server is unavailable.
-
-## Decoupled Workflow
-
-1. User uploads an image
-2. Image is stored in Amazon S3
-3. S3 triggers an SNS notification
-4. SNS:
-   - Publishes message to SQS queue
-   - Sends email notification
-5. Application server polls SQS
-6. Image is processed asynchronously
-
-Messages persist in SQS until successfully processed.
+✔ Real AWS services  
+✔ Event-driven architecture  
+✔ Fault-tolerant design  
+✔ Cloud-native principles  
+✔ Recruiter-ready documentation  
 
 
