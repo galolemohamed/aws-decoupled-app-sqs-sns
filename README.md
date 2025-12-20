@@ -12,7 +12,8 @@ The project is based on a hands-on AWS guided lab and focuses on transforming a 
 
 ### Decoupled Event-Driven Architecture
 
-![AWS S3 SNS SQS Architecture](Architecture/Decoupled-architecture.png)
+[![Architecture](Architecture/aws-s3-sns-sqs-architecture.png)](Architecture/aws-s3-sns-sqs-architecture.png)
+
 
 **Architecture Type:** Event-driven, decoupled  
 **Key Benefits:** Fault tolerance, scalability, asynchronous processing
@@ -47,7 +48,7 @@ This design ensures the system remains operational even if one component fails.
 
 ---
 
-## 🔄 Architecture Evolution
+##  Architecture Evolution
 
 ### Phase 1 – Tightly Coupled Architecture
 
@@ -107,7 +108,7 @@ These screenshots provide **visual proof of real AWS resource configuration**.
 
 ---
 
-## 🔐 Reliability & Fault Tolerance
+##  Reliability & Fault Tolerance
 
 - Message persistence via SQS prevents data loss
 - Components operate independently
@@ -116,7 +117,7 @@ These screenshots provide **visual proof of real AWS resource configuration**.
 
 ---
 
-## 🧠 Key Learnings
+##  Key Learnings
 
 - Decoupling improves availability and scalability
 - Message queues prevent system-wide failures
@@ -126,6 +127,15 @@ These screenshots provide **visual proof of real AWS resource configuration**.
 
 ---
 
+##  How to Reproduce 
+
+1. Create an S3 bucket and enable event notifications
+2. Configure an SNS topic and email subscription
+3. Subscribe an SQS queue to the SNS topic
+4. Deploy the application server on EC2
+5. Upload an image and observe asynchronous processing
+
+---
 
 ##  Conclusion
 
