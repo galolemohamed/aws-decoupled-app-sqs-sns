@@ -12,7 +12,7 @@ The project is based on a hands-on AWS guided lab and focuses on transforming a 
 
 ### Decoupled Event-Driven Architecture
 
-[![Architecture](Architecture/aws-s3-sns-sqs-architecture.png)](Architecture/aws-s3-sns-sqs-architecture.png)
+[![Architecture](Architecture/aws-s3-sns-sqs-architecture.png)
 
 
 **Architecture Type:** Event-driven, decoupled  
