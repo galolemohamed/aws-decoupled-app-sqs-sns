@@ -141,15 +141,6 @@ These screenshots provide **visual proof of real AWS resource configuration**.
 ##  Conclusion
 
 This project demonstrates how **Amazon SNS and Amazon SQS** can be used together to build **reliable, loosely coupled cloud applications**. By transitioning from synchronous communication to an event-driven architecture, the system achieves **higher availability, better scalability, and improved fault tolerance**.
-
----
-
-##  Why This Project Matters
-
-✔ Real AWS services  
-✔ Event-driven architecture  
-✔ Fault-tolerant design  
-✔ Cloud-native principles  
-✔ Recruiter-ready documentation  
+ 
 
 
